@@ -13,12 +13,14 @@
         "<(node_root_dir)/deps/openssl/openssl/include",
         "<(freefare_src)",
         "contrib/<(OS)/<(ARCH)",
+        "contrib/libutil",
       ],
-      "defines": ["USE_PCSC"],
+      "defines": ["USE_PCSC", "WITH_DEBUG", "HAS_LIBUTIL"],
       "direct_dependent_settings": {
         "include_dirs": [
           "<(freefare_src)",
           "contrib/<(OS)/<(ARCH)",
+          "contrib/libutil",
         ],
       },
       "conditions": [
@@ -110,7 +112,8 @@
         "<(freefare_src)/mifare_desfire_error.c",
         "<(freefare_src)/mifare_desfire_key.c",
         "<(freefare_src)/mifare_ultralight.c",
-        "<(freefare_src)/tlv.c"
+        "<(freefare_src)/tlv.c",
+        "contrib/libutil/hexdump.c"
       ],
       "cflags": [
         "-Wall",
